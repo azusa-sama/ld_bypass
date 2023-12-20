@@ -104,14 +104,28 @@
 
                 <div class="mb-3">
                     <label class="form-label">Architecture:</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="architecture" id="x64" value="x64" checked>
-                        <label class="form-check-label" for="x64">x64</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="architecture" id="x86" value="x86">
-                        <label class="form-check-label" for="x86">x86</label>
-                    </div>
+                    <?php
+                    // auto check radio button based on architecture value
+                    if ($arch == "x86") {
+                        echo '<div class="form-check">';
+                        echo '<input class="form-check-input" type="radio" name="architecture" id="x86" value="x86" checked>';
+                        echo '<label class="form-check-label" for="x86">x86</label>';
+                        echo '</div>';
+                        echo '<div class="form-check">';
+                        echo '<input class="form-check-input" type="radio" name="architecture" id="x64" value="x64">';
+                        echo '<label class="form-check-label" for="x64">x64</label>';
+                        echo '</div>';
+                    } else {
+                        echo '<div class="form-check">';
+                        echo '<input class="form-check-input" type="radio" name="architecture" id="x86" value="x86">';
+                        echo '<label class="form-check-label" for="x86">x86</label>';
+                        echo '</div>';
+                        echo '<div class="form-check">';
+                        echo '<input class="form-check-input" type="radio" name="architecture" id="x64" value="x64" checked>';
+                        echo '<label class="form-check-label" for="x64">x64</label>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="sbmtbtn">Submit</button>
