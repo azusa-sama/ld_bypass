@@ -67,6 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         * {
             scrollbar-width: thin;
         }
+
+        textarea {
+            resize: none;
+        }
     </style>
 </head>
 <?php
