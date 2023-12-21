@@ -34,10 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mail("", "", "", "");
 
     // Execute the command and get output
-    $response['output'] = nl2br(file_get_contents($out_path));
-    // remove <br> tag from output using strip_tags
-    $response['output'] = strip_tags($response['output']);
-    trim($response['output']);
+    $response['output'] = file_get_contents($out_path);
     $response['so_path'] = $so_path;
 
     // Remove the output file
