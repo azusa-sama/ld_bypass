@@ -122,7 +122,7 @@ if (func_is_disabled('putenv')) {
 
                     <tr>
                         <th>putenv()</td>
-                        <td><span class="btn btn-sm <?php echo $putenv ? "btn-success" : "btn-danger"; ?>"><?php echo $putenv ? "Enabled" : "Disabled"; ?></span> | <span class="text-muted">putenv() is required to bypass disable_functions.</span></td>
+                        <td><span class="btn btn-sm <?php echo $putenv ? "btn-success" : "btn-danger"; ?>"><?php echo $putenv ? "Enabled" : "Disabled"; ?></span> </td>
                     </tr>
                     <tr>
                         <th>Command </td>
